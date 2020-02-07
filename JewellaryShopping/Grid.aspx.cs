@@ -28,7 +28,7 @@ namespace JewellaryShopping
         }
         public void DeleteDetails(object sender, GridViewDeleteEventArgs e)
         {
-            Repositary repositary = new Repositary();
+            Repositary repositary =     new Repositary();
             string userId = idView.DataKeys[e.RowIndex].Values["UserId"].ToString();
             repositary.DeleteCustomerDetails(userId);
             DisplayDetails();
