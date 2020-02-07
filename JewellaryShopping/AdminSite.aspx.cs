@@ -36,7 +36,7 @@ namespace JewellaryShopping
         public void UpdateDetails(object sender, GridViewUpdateEventArgs e)
         {
             Repositary repositary = new Repositary();
-            string userId = idView.DataKeys[e.RowIndex].Values["UserId"].ToString();
+            string userId =idView.DataKeys[e.RowIndex].Values["UserId"].ToString();
             string mail = (idView.Rows[e.RowIndex].FindControl("Mail") as TextBox).Text;
             string phone= (idView.Rows[e.RowIndex].FindControl("Phone") as TextBox).Text;
             string role= (idView.Rows[e.RowIndex].FindControl("Role") as TextBox).Text;
