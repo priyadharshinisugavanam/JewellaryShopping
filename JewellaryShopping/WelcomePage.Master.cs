@@ -29,7 +29,7 @@ namespace JewellaryShopping
         {
 
 
-            Response.Redirect("Jwellary.aspx");
+            Response.Redirect("Login.aspx");
         }
 
     }

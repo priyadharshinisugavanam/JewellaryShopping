@@ -8,7 +8,7 @@ using System.Web.UI.WebControls;
 
 namespace JewellaryShopping
 {
-    public partial class Jwellary : System.Web.UI.Page
+    public partial class Login : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -21,7 +21,7 @@ namespace JewellaryShopping
             string retRows = repositary.Login( users);
             if (retRows == "Admin")
             {
-                Response.Redirect("GridButtons.aspx");
+                Response.Redirect("AdminWorkSite.aspx");
             }
             else
             {

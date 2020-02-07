@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace JewellaryShopping
 {
-    public partial class GridButtons : System.Web.UI.Page
+    public partial class AdminWorkSite : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -15,7 +15,7 @@ namespace JewellaryShopping
         }
         public void ViewCustomer(object sender, EventArgs e)
         {
-            Response.Redirect("Grid.aspx");
+            Response.Redirect("AdminSite.aspx");
         }
         public void Edit()
         {

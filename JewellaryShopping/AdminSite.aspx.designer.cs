@@ -11,7 +11,7 @@ namespace JewellaryShopping
 {
 
 
-    public partial class Grid
+    public partial class AdminSite
     {
 
         /// <summary>

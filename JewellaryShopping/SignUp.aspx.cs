@@ -21,7 +21,7 @@ namespace JewellaryShopping
             int retRows = repositary.AddAdmin(user);
             if (retRows >= 1)
             {
-                Response.Redirect("Jwellary.aspx");
+                Response.Redirect("Login.aspx");
             }
             else
             {

@@ -39,7 +39,7 @@ namespace JewellaryShopping
     {
 
         SqlConnection sqlConnection = Connection.getDetails();
-        public int AddAdmin( User user)
+        public int AddAdmin(User user)
         {
             string sql = "AdminProcedure";
 
@@ -87,10 +87,10 @@ namespace JewellaryShopping
 
             }
         }
-        public string Login( User user)
+        public string Login(User user)
         {
-            
-            
+
+
             using (SqlCommand sqlCommand = new SqlCommand("Select_AdminProcedure", sqlConnection))
             {
                 sqlCommand.CommandType = CommandType.StoredProcedure;
@@ -112,15 +112,15 @@ namespace JewellaryShopping
                 sqlCommand.Parameters["@RoleOfMemeber"].Direction = ParameterDirection.Output;
                 sqlConnection.Open();
                 sqlCommand.ExecuteReader();
-                if (Convert.ToString(sqlCommand.Parameters["@RoleOfMemeber"].Value)=="User")
-                    return "User" ;
+                if (Convert.ToString(sqlCommand.Parameters["@RoleOfMemeber"].Value) == "User")
+                    return "User";
                 else
                     return "Admin";
             }
-            
+
 
         }
-        public  DataTable ViewDetails()
+        public DataTable ViewDetails()
         {
 
             using (SqlCommand sqlCommand = new SqlCommand("SP_VIEWCUSTOMER ", sqlConnection))
@@ -134,7 +134,7 @@ namespace JewellaryShopping
         }
         public void DeleteCustomerDetails(string user)
         {
-            using(SqlCommand sqlCommand = new SqlCommand("SP_DELETECUSTOMER ", sqlConnection))
+            using (SqlCommand sqlCommand = new SqlCommand("SP_DELETECUSTOMER ", sqlConnection))
             {
                 SqlParameter paramm = new SqlParameter();
                 sqlCommand.CommandType = CommandType.StoredProcedure;
@@ -151,7 +151,43 @@ namespace JewellaryShopping
 
             }
         }
+        public void UpdateCustomerDetails(string userID, string phoneNumber, string mailId, string role)
+        {
+            using (SqlCommand sqlCommand = new SqlCommand("SP_Update", sqlConnection))
+            {
+                SqlParameter paramm = new SqlParameter();
+                sqlCommand.CommandType = CommandType.StoredProcedure;
 
+                paramm.ParameterName = "@UserId";
+                paramm.Value = userID;
+                paramm.SqlDbType = SqlDbType.Char;
+                paramm.Size = 18;
+                sqlCommand.Parameters.Add(paramm);
+
+                paramm = new SqlParameter();
+                paramm.ParameterName = "@MailId";
+                paramm.Value = mailId;
+                paramm.SqlDbType = SqlDbType.Char;
+                paramm.Size = 20;
+                sqlCommand.Parameters.Add(paramm);
+
+                paramm = new SqlParameter();
+                paramm.ParameterName = "@PhoneNumber";
+                paramm.Value = phoneNumber;
+                paramm.SqlDbType = SqlDbType.Char;
+                paramm.Size = 13;
+                sqlCommand.Parameters.Add(paramm);
+                paramm = new SqlParameter();
+                paramm.ParameterName = "@RoleOfMemeber";
+                paramm.Value = role;
+                paramm.SqlDbType = SqlDbType.VarChar;
+                paramm.Size = 5;
+                sqlCommand.Parameters.Add(paramm);
+                sqlConnection.Open();
+                sqlCommand.ExecuteNonQuery();
+            }
+
+        }
     }
 
     

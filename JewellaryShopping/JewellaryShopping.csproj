@@ -67,30 +67,31 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Grid.aspx" />
-    <Content Include="GridButtons.aspx" />
+    <Content Include="AdminSite.aspx" />
+    <Content Include="AdminWorkSite.aspx" />
     <Content Include="Home.aspx" />
+    <Content Include="Images\back.jpg" />
     <Content Include="Images\jewell.jpg" />
-    <Content Include="Jwellary.aspx" />
+    <Content Include="Login.aspx" />
     <Content Include="SignUp.aspx" />
     <Content Include="Styles.css" />
     <Content Include="UserViewPage.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Grid.aspx.cs">
-      <DependentUpon>Grid.aspx</DependentUpon>
+    <Compile Include="AdminSite.aspx.cs">
+      <DependentUpon>AdminSite.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Grid.aspx.designer.cs">
-      <DependentUpon>Grid.aspx</DependentUpon>
+    <Compile Include="AdminSite.aspx.designer.cs">
+      <DependentUpon>AdminSite.aspx</DependentUpon>
     </Compile>
-    <Compile Include="GridButtons.aspx.cs">
-      <DependentUpon>GridButtons.aspx</DependentUpon>
+    <Compile Include="AdminWorkSite.aspx.cs">
+      <DependentUpon>AdminWorkSite.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="GridButtons.aspx.designer.cs">
-      <DependentUpon>GridButtons.aspx</DependentUpon>
+    <Compile Include="AdminWorkSite.aspx.designer.cs">
+      <DependentUpon>AdminWorkSite.aspx</DependentUpon>
     </Compile>
     <Compile Include="Home.aspx.cs">
       <DependentUpon>Home.aspx</DependentUpon>
@@ -99,12 +100,12 @@
     <Compile Include="Home.aspx.designer.cs">
       <DependentUpon>Home.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Jwellary.aspx.cs">
-      <DependentUpon>Jwellary.aspx</DependentUpon>
+    <Compile Include="Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Jwellary.aspx.designer.cs">
-      <DependentUpon>Jwellary.aspx</DependentUpon>
+    <Compile Include="Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositary.cs" />

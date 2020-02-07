@@ -11,7 +11,7 @@ namespace JewellaryShopping
 {
 
 
-    public partial class GridButtons
+    public partial class AdminWorkSite
     {
 
         /// <summary>

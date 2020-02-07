@@ -11,7 +11,7 @@ namespace JewellaryShopping
 {
 
 
-    public partial class Jwellary
+    public partial class Login
     {
 
         /// <summary>
