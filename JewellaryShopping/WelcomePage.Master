@@ -1,0 +1,38 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="WelcomePage.Master.cs" Inherits="JewellaryShopping.Site1" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title></title>
+    <link rel="stylesheet" href="Styles.css" />
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body >
+      <h1><marquee> Sri Mathre Jewellers</marquee></h1>
+    <form  id="form1" runat="server" margin="115">
+        <div>
+            <span style="margin-left:1150px" >
+            <table  class="box" Align="Center" border="0">
+                   
+              <tr>  
+                   <td Align="Center">  
+                        <asp:Button text="Home" runat="server" ID="Button1"  style="background-color:aliceblue" onclick="Click"/></td>
+                    <td Align="Center">  
+                        <asp:Button text="SignUp" runat="server" ID="Button3"  style="background-color:aliceblue" onclick="SignUp"/></td>
+                     
+                
+                 
+                    <td  Align="Center">  
+                        <asp:Button text="Login" runat="server" ID="Button4"  style="background-color:aliceblue" onclick="OnClicks"/></td>
+                                       
+             </tr> 
+            </table>
+           </span>
+            <asp:ContentPlaceHolder ID="WelcomePage" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+    </form>
+</body>
+</html>

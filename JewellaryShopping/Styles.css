@@ -1,0 +1,121 @@
+﻿.a {
+    font-family: Arial, sans-serif;
+    font-size: 1em;
+    color:cadetblue
+    font-weight: bold;
+    position: top;
+}
+
+    .a .b {
+        font-family: Impact, sans-serif;
+        color: #1ab2ff;
+        -webkit-text-stroke: 0.01em #d6d6c2;
+        filter: progid:DXImageTransform.Microsoft.Glow(Color=#d6d6c2,Strength=1);
+        text-shadow: 0.13em -0.13em 0px #d6d6c2;
+        letter-spacing: -0.05em;
+    }
+
+input[type="text"], input[type="password"], input[type="email"] {
+    border: none;
+    border-bottom: 1px solid #fff;
+    background: transparent;
+    outline: none;
+    height: 30px;
+    color: black;
+    font-size: 12px;
+}
+
+body {
+    background-image: url('Images/jewell.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+    font-family: sans-serif;
+}
+
+input[type="SUBMIT"] {
+    border: none;
+    height: 19px;
+    background-color: #ffff;
+    color: black;
+    font-size: 15px;
+    border-radius: -15px;
+}
+
+    input[type="submit"]:hover {
+        cursor: pointer;
+        background: #ffe6e6;
+    }
+
+.box {
+    background: transparent;
+    color: black;
+    top: 10%;
+    left: 89%;
+    position: absolute;
+    transform: translate(-8%,-8%);
+    box-sizing: border-box;
+    padding: -25px -25px;
+}
+.boxes {
+    background: transparent;
+    color:black;
+    font-weight:bold;
+    font-size:medium;
+    top: 20%;
+    left: 40%;
+    position: absolute;
+    transform: translate(-8%,-8%);
+    box-sizing: border-box;
+    padding: -25px -25px;
+}
+.boxs {
+    background: transparent;
+    color: black;
+    font-weight: bold;
+    font-size: medium;
+    top: 30%;
+    left: 40%;
+    position: absolute;
+    transform: translate(-8%,-8%);
+    box-sizing: border-box;
+    padding: -25px -25px;
+}
+
+
+
+
+.user {
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    top: -50px;
+    left: calc(50% - 50px);
+}
+
+h2 {
+    margin: 0;
+    padding: 0 0 20px;
+    text-align: center;
+    font-size: 22px;
+    color: black;
+}
+
+p {
+    margin: 0;
+    padding: 0;
+    font-weight: bold;
+}
+
+a {
+    text-decoration: none;
+    font-size: 16px;
+    line-height: 20px;
+    color: #069818;
+}
+
+
+    a:hover {
+        color: red;
+    }
