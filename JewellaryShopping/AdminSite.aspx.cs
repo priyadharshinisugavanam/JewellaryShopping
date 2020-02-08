@@ -1,16 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using JewellaryShopping.BL;
+using System;
 using System.Data;
-using System.Data.SqlClient;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
 using System.Web.UI.WebControls;
 
 namespace JewellaryShopping
 {
     public partial class AdminSite : System.Web.UI.Page
     {
+        UserDetails userDetails = new UserDetails();
         protected void Page_Load(object sender, EventArgs e)
         {
             if(!IsPostBack)
@@ -20,27 +17,27 @@ namespace JewellaryShopping
         }
         public void DisplayDetails()
         {
-            Repositary repositary = new Repositary();
+           
             DataTable dataTable = new DataTable();
-            dataTable = repositary.ViewDetails();
+            dataTable = userDetails.ViewDetails();
             idView.DataSource = dataTable;
             idView.DataBind();
         }
         public void DeleteDetails(object sender, GridViewDeleteEventArgs e)
         {
-            Repositary repositary = new Repositary();
+            
             string userId = idView.DataKeys[e.RowIndex].Values["UserId"].ToString();
-            repositary.DeleteCustomerDetails(userId);
+            userDetails.DeleteCustomerDetails(userId);
             DisplayDetails();
         }
         public void UpdateDetails(object sender, GridViewUpdateEventArgs e)
         {
-            Repositary repositary = new Repositary();
+            
             string userId =idView.DataKeys[e.RowIndex].Values["UserId"].ToString();
             string mail = (idView.Rows[e.RowIndex].FindControl("Mail") as TextBox).Text;
             string phone= (idView.Rows[e.RowIndex].FindControl("Phone") as TextBox).Text;
             string role= (idView.Rows[e.RowIndex].FindControl("Role") as TextBox).Text;
-            repositary.UpdateCustomerDetails(userId, phone, mail, role);
+            userDetails.UpdateCustomerDetails(userId, phone, mail, role);
             idView.EditIndex = -1;
             DisplayDetails();
         }
@@ -54,5 +51,6 @@ namespace JewellaryShopping
             idView.EditIndex = -1;
             DisplayDetails();
         }
+        
     }
 }

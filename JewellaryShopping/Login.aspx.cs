@@ -1,15 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.SqlClient;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
-
+﻿using JewellaryShopping.BL;
+using JewellaryShopping.Entity;
+using System;
 namespace JewellaryShopping
 {
     public partial class Login : System.Web.UI.Page
     {
+        UserDetails userDetails = new UserDetails();
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -17,15 +13,19 @@ namespace JewellaryShopping
         public virtual void OnClicks(Object sender, EventArgs e)
         {
             User users = new User(userId.Text, password.Text);
-            Repositary repositary = new Repositary();
-            string retRows = repositary.Login( users);
+            
+            string retRows = userDetails.Login( users);
             if (retRows == "Admin")
             {
                 Response.Redirect("AdminWorkSite.aspx");
             }
-            else
+            else if (retRows == "User")
             {
                 Response.Write("Login successfully as user");
+            }
+            else
+            {
+                Response.Write("Login failed");
             }
         }
     

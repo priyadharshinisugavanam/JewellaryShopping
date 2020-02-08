@@ -1,15 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.SqlClient;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
-
+﻿using JewellaryShopping.BL;
+using JewellaryShopping.Entity;
+using System;
 namespace JewellaryShopping
 {
     public partial class SignUp : System.Web.UI.Page
     {
+        UserDetails userDetails = new UserDetails();
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -17,8 +13,8 @@ namespace JewellaryShopping
         public virtual void SignUps(Object sender, EventArgs e)
         {
             User user = new User(userId.Text, password.Text, phone.Text, mail.Text);
-            Repositary repositary = new Repositary();
-            int retRows = repositary.AddAdmin(user);
+            
+            int retRows = userDetails.AddAdmin(user);
             if (retRows >= 1)
             {
                 Response.Redirect("Login.aspx");

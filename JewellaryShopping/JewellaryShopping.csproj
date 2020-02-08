@@ -75,7 +75,6 @@
     <Content Include="Login.aspx" />
     <Content Include="SignUp.aspx" />
     <Content Include="Styles.css" />
-    <Content Include="UserViewPage.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -123,13 +122,6 @@
     <Compile Include="WelcomePage.Master.designer.cs">
       <DependentUpon>WelcomePage.Master</DependentUpon>
     </Compile>
-    <Compile Include="UserViewPage.aspx.cs">
-      <DependentUpon>UserViewPage.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="UserViewPage.aspx.designer.cs">
-      <DependentUpon>UserViewPage.aspx</DependentUpon>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -140,6 +132,20 @@
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Jewell.BL\JewellaryShopping.BL.csproj">
+      <Project>{5e54ea94-13a2-4004-aa2a-87f871bb87fd}</Project>
+      <Name>JewellaryShopping.BL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Jewell.Common\JewellaryShopping.Common.csproj">
+      <Project>{603f5e4a-bbb4-4efa-99af-a609fb2b4461}</Project>
+      <Name>JewellaryShopping.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Jewell.Entity\JewellaryShopping.Entity.csproj">
+      <Project>{9dba76ec-139b-478f-a17e-ed97819443d6}</Project>
+      <Name>JewellaryShopping.Entity</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

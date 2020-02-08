@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/WelcomePage.Master" AutoEventWireup="true" CodeBehind="AdminWorkSite.aspx.cs" Inherits="JewellaryShopping.AdminWorkSite" %>
+﻿<%@ Page Title="" Language="C#" Trace="false"  MasterPageFile="~/WelcomePage.Master" AutoEventWireup="true" CodeBehind="AdminWorkSite.aspx.cs" Inherits="JewellaryShopping.AdminWorkSite" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="WelcomePage" runat="server">
