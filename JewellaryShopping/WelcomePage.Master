@@ -9,8 +9,8 @@
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
-<body >
-      <h1 style="text-rendering:white"><marquee> Sri Mathre Jewellers</marquee></h1>
+<body>
+      <h1><marquee> Sri Mathre Jewellers</marquee></h1>
     <form  id="form1" runat="server" margin="115">
         <div>
             <span style="margin-left:1150px" >

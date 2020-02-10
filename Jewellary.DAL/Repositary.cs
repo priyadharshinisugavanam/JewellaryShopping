@@ -4,109 +4,143 @@ using System.Data;
 using System.Data.SqlClient;
 namespace JewellaryShopping.DAL
 {
-   public  class Repositary
+    public class Repositary
     {
+        
 
         SqlConnection sqlConnection = Connection.getDetails();
-        public  int AddAdmin(User user)
+        
+        public int AddAdmin(User user)
         {
+            try {
             string sql = "AdminProcedure";
 
-            using (SqlCommand sqlCommand = new SqlCommand(sql, sqlConnection))
+                using (SqlCommand sqlCommand = new SqlCommand(sql, sqlConnection))
+                {
+                    SqlParameter paramm = new SqlParameter();
+                    sqlCommand.CommandType = CommandType.StoredProcedure;
+
+                    paramm.ParameterName = "@UserId";
+                    paramm.Value = user.userID;
+                    paramm.SqlDbType = SqlDbType.Char;
+                    paramm.Size = 18;
+                    sqlCommand.Parameters.Add(paramm);
+
+                    paramm = new SqlParameter();
+                    paramm.ParameterName = "@password";
+                    paramm.Value = user.password;
+                    paramm.SqlDbType = SqlDbType.Char;
+                    paramm.Size = 18;
+                    sqlCommand.Parameters.Add(paramm);
+
+                    paramm = new SqlParameter();
+                    paramm.ParameterName = "@MailId";
+                    paramm.Value = user.mailId;
+                    paramm.SqlDbType = SqlDbType.Char;
+                    paramm.Size = 20;
+                    sqlCommand.Parameters.Add(paramm);
+
+                    paramm = new SqlParameter();
+                    paramm.ParameterName = "@PhoneNumber";
+                    paramm.Value = user.phoneNumber;
+                    paramm.SqlDbType = SqlDbType.Char;
+                    paramm.Size = 13;
+                    sqlCommand.Parameters.Add(paramm);
+                    paramm = new SqlParameter();
+                    paramm.ParameterName = "@RoleOfMemeber";
+                    paramm.Value = "User";
+                    paramm.SqlDbType = SqlDbType.VarChar;
+                    paramm.Size = 5;
+                    sqlCommand.Parameters.Add(paramm);
+
+                    sqlConnection.Open();
+                    int row = sqlCommand.ExecuteNonQuery();
+                    return row;
+                }
+
+            }
+            catch (Exception e)
             {
-                SqlParameter paramm = new SqlParameter();
-                sqlCommand.CommandType = CommandType.StoredProcedure;
-
-                paramm.ParameterName = "@UserId";
-                paramm.Value = user.userID;
-                paramm.SqlDbType = SqlDbType.Char;
-                paramm.Size = 18;
-                sqlCommand.Parameters.Add(paramm);
-
-                paramm = new SqlParameter();
-                paramm.ParameterName = "@password";
-                paramm.Value = user.password;
-                paramm.SqlDbType = SqlDbType.Char;
-                paramm.Size = 18;
-                sqlCommand.Parameters.Add(paramm);
-
-                paramm = new SqlParameter();
-                paramm.ParameterName = "@MailId";
-                paramm.Value = user.mailId;
-                paramm.SqlDbType = SqlDbType.Char;
-                paramm.Size = 20;
-                sqlCommand.Parameters.Add(paramm);
-
-                paramm = new SqlParameter();
-                paramm.ParameterName = "@PhoneNumber";
-                paramm.Value = user.phoneNumber;
-                paramm.SqlDbType = SqlDbType.Char;
-                paramm.Size = 13;
-                sqlCommand.Parameters.Add(paramm);
-                paramm = new SqlParameter();
-                paramm.ParameterName = "@RoleOfMemeber";
-                paramm.Value = "User";
-                paramm.SqlDbType = SqlDbType.VarChar;
-                paramm.Size = 5;
-                sqlCommand.Parameters.Add(paramm);
-
-                sqlConnection.Open();
-                int row = sqlCommand.ExecuteNonQuery();
-                return row;
-
+                Console.WriteLine(e.Message);
+                return 0;
+            }
+            finally
+            {
+                sqlConnection.Close();
             }
         }
         public string Login(User user)
         {
 
-
-            using (SqlCommand sqlCommand = new SqlCommand("Select_AdminProcedure", sqlConnection))
+            try
             {
-                sqlCommand.CommandType = CommandType.StoredProcedure;
-                SqlParameter sqlParameter = new SqlParameter();
-                sqlParameter.ParameterName = "@UserId";
-                sqlParameter.Value = user.userID;
-                sqlParameter.SqlDbType = SqlDbType.VarChar;
-                sqlParameter.Size = 18;
-                sqlCommand.Parameters.Add(sqlParameter);
+                using (SqlCommand sqlCommand = new SqlCommand("Select_AdminProcedure", sqlConnection))
+                {
+                    sqlCommand.CommandType = CommandType.StoredProcedure;
+                    SqlParameter sqlParameter = new SqlParameter();
+                    sqlParameter.ParameterName = "@UserId";
+                    sqlParameter.Value = user.userID;
+                    sqlParameter.SqlDbType = SqlDbType.VarChar;
+                    sqlParameter.Size = 18;
+                    sqlCommand.Parameters.Add(sqlParameter);
 
-                sqlParameter = new SqlParameter();
-                sqlParameter.ParameterName = "@password";
-                sqlParameter.Value = user.password;
-                sqlParameter.SqlDbType = SqlDbType.VarChar;
-                sqlParameter.Size = 18;
-                sqlCommand.Parameters.Add(sqlParameter);
-                //sqlParameter = new SqlParameter();
-                sqlCommand.Parameters.Add("@RoleOfMemeber", SqlDbType.VarChar, 5);
-                sqlCommand.Parameters["@RoleOfMemeber"].Direction = ParameterDirection.Output;
-                sqlConnection.Open();
-                sqlCommand.ExecuteReader();
-                if (Convert.ToString(sqlCommand.Parameters["@RoleOfMemeber"].Value) == "User")
-                    return "User";
-                else if (Convert.ToString(sqlCommand.Parameters["@RoleOfMemeber"].Value) == "Admin")
-                    return "Admin";
-                else
-                    return "Login failed";
-
-
-
+                    sqlParameter = new SqlParameter();
+                    sqlParameter.ParameterName = "@password";
+                    sqlParameter.Value = user.password;
+                    sqlParameter.SqlDbType = SqlDbType.VarChar;
+                    sqlParameter.Size = 18;
+                    sqlCommand.Parameters.Add(sqlParameter);
+                    //sqlParameter = new SqlParameter();
+                    sqlCommand.Parameters.Add("@RoleOfMemeber", SqlDbType.VarChar, 5);
+                    sqlCommand.Parameters["@RoleOfMemeber"].Direction = ParameterDirection.Output;
+                    sqlConnection.Open();
+                    sqlCommand.ExecuteReader();
+                    if (Convert.ToString(sqlCommand.Parameters["@RoleOfMemeber"].Value) == "User")
+                        return "User";
+                    else if (Convert.ToString(sqlCommand.Parameters["@RoleOfMemeber"].Value) == "Admin")
+                        return "Admin";
+                    else
+                        return "Login failed";
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                return "sorry for the issue";
+            }
+            finally
+            {
+                sqlConnection.Close();
             }
 
 
         }
         public DataTable ViewDetails()
         {
-
-            using (SqlCommand sqlCommand = new SqlCommand("SP_VIEWCUSTOMER ", sqlConnection))
+            try
             {
-                SqlDataAdapter sqlDataAdapter = new SqlDataAdapter("SP_VIEWCUSTOMER ", sqlConnection);
+                using (SqlCommand sqlCommand = new SqlCommand("SP_VIEWCUSTOMER ", sqlConnection))
+                {
+                    SqlDataAdapter sqlDataAdapter = new SqlDataAdapter("SP_VIEWCUSTOMER ", sqlConnection);
+                    DataTable dataTable = new DataTable();
+                    sqlDataAdapter.Fill(dataTable);
+                    return dataTable;
+                }
+            }
+            catch (Exception e)
+            {
                 DataTable dataTable = new DataTable();
-                sqlDataAdapter.Fill(dataTable);
+                Console.WriteLine(e.Message);
                 return dataTable;
+            }
+            finally
+            {
+                sqlConnection.Close();
             }
         }
         public void DeleteCustomerDetails(string user)
         {
+            try { 
             using (SqlCommand sqlCommand = new SqlCommand("SP_DELETECUSTOMER ", sqlConnection))
             {
                 SqlParameter paramm = new SqlParameter();
@@ -123,44 +157,70 @@ namespace JewellaryShopping.DAL
                 sqlCommand.ExecuteNonQuery();
 
             }
+            }
+            catch (Exception e)
+            {
+                
+                Console.WriteLine(e.Message);
+               
+            }
+            finally
+            {
+                sqlConnection.Close();
+            }
         }
         public void UpdateCustomerDetails(string userID, string phoneNumber, string mailId, string role)
         {
-            using (SqlCommand sqlCommand = new SqlCommand("SP_Update", sqlConnection))
+            try
             {
-                SqlParameter paramm = new SqlParameter();
-                sqlCommand.CommandType = CommandType.StoredProcedure;
+                using (SqlCommand sqlCommand = new SqlCommand("SP_Update", sqlConnection))
+                {
+                    SqlParameter paramm = new SqlParameter();
+                    sqlCommand.CommandType = CommandType.StoredProcedure;
 
-                paramm.ParameterName = "@UserId";
-                paramm.Value = userID;
-                paramm.SqlDbType = SqlDbType.Char;
-                paramm.Size = 18;
-                sqlCommand.Parameters.Add(paramm);
+                    paramm.ParameterName = "@UserId";
+                    paramm.Value = userID;
+                    paramm.SqlDbType = SqlDbType.Char;
+                    paramm.Size = 18;
+                    sqlCommand.Parameters.Add(paramm);
 
-                paramm = new SqlParameter();
-                paramm.ParameterName = "@MailId";
-                paramm.Value = mailId;
-                paramm.SqlDbType = SqlDbType.Char;
-                paramm.Size = 20;
-                sqlCommand.Parameters.Add(paramm);
+                    paramm = new SqlParameter();
+                    paramm.ParameterName = "@MailId";
+                    paramm.Value = mailId;
+                    paramm.SqlDbType = SqlDbType.Char;
+                    paramm.Size = 20;
+                    sqlCommand.Parameters.Add(paramm);
 
-                paramm = new SqlParameter();
-                paramm.ParameterName = "@PhoneNumber";
-                paramm.Value = phoneNumber;
-                paramm.SqlDbType = SqlDbType.Char;
-                paramm.Size = 13;
-                sqlCommand.Parameters.Add(paramm);
-                paramm = new SqlParameter();
-                paramm.ParameterName = "@RoleOfMemeber";
-                paramm.Value = role;
-                paramm.SqlDbType = SqlDbType.VarChar;
-                paramm.Size = 5;
-                sqlCommand.Parameters.Add(paramm);
-                sqlConnection.Open();
-                sqlCommand.ExecuteNonQuery();
+                    paramm = new SqlParameter();
+                    paramm.ParameterName = "@PhoneNumber";
+                    paramm.Value = phoneNumber;
+                    paramm.SqlDbType = SqlDbType.Char;
+                    paramm.Size = 13;
+                    sqlCommand.Parameters.Add(paramm);
+                    paramm = new SqlParameter();
+                    paramm.ParameterName = "@RoleOfMemeber";
+                    paramm.Value = role;
+                    paramm.SqlDbType = SqlDbType.VarChar;
+                    paramm.Size = 5;
+                    sqlCommand.Parameters.Add(paramm);
+                    sqlConnection.Open();
+                    sqlCommand.ExecuteNonQuery();
+                }
+            }
+            catch (Exception e)
+            {
+                
+                Console.WriteLine(e.Message);
+                
+            }
+            finally
+            {
+                sqlConnection.Close();
             }
 
         }
+
+    
     
     }
 

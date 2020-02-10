@@ -8,7 +8,11 @@
                    
               <tr>  
                    <td Align="Center">  
-                        <asp:Button text="View Customer" runat="server" ID="View"  style="background-color:aliceblue" onclick="ViewCustomer"/> </td>
+                        <asp:Button text=" Customer Details" runat="server" ID="View"  style="background-color:aliceblue" onclick="ViewCustomer"/> </td>
+                  </tr>
+                <tr>  
+                   <td Align="Center">  
+                        <asp:Button text=" Product Details" runat="server" ID="Button1"  style="background-color:aliceblue" onclick="ViewProduct"/> </td>
                   </tr>
                 
             </table>

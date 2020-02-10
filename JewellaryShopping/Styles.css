@@ -1,7 +1,7 @@
 ﻿.a {
     font-family: Arial, sans-serif;
     font-size: 1em;
-    color:cadetblue
+    color:cadetblue;
     font-weight: bold;
     position: top;
 }
@@ -13,6 +13,9 @@
         filter: progid:DXImageTransform.Microsoft.Glow(Color=#d6d6c2,Strength=1);
         text-shadow: 0.13em -0.13em 0px #d6d6c2;
         letter-spacing: -0.05em;
+    }
+    .required{
+        color:red;
     }
 
 input[type="text"], input[type="password"], input[type="email"] {
@@ -26,7 +29,9 @@ input[type="text"], input[type="password"], input[type="email"] {
 }
 
 body {
-    background-image: url('Images/jewell.jpg');
+    background-image: url('Images/perl.jpg');
+    color:black;
+    image-rendering: pixelated;
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center;
@@ -60,9 +65,9 @@ input[type="SUBMIT"] {
 }
 .boxes {
     background: transparent;
-    color:black;
-    font-weight:bold;
-    font-size:medium;
+    color: black;
+    font-weight: bold;
+    font-size: large;
     top: 20%;
     left: 40%;
     position: absolute;
@@ -72,9 +77,9 @@ input[type="SUBMIT"] {
 }
 .boxs {
     background: transparent;
-    color: black;
-    font-weight: bold;
-    font-size: medium;
+    color:black;
+    font-weight:bold;
+    font-size: large;
     top: 30%;
     left: 40%;
     position: absolute;

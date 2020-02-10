@@ -1,4 +1,4 @@
-﻿using JewellaryShopping.BL;
+﻿   using JewellaryShopping.BL;
 using JewellaryShopping.Entity;
 using System;
 namespace JewellaryShopping

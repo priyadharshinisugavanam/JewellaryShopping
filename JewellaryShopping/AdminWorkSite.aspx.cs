@@ -10,9 +10,11 @@ namespace JewellaryShopping
         public void ViewCustomer(object sender, EventArgs e)
         {
             Response.Redirect("AdminSite.aspx");
+
         }
-        public void Edit()
+        public void ViewProduct(object sender, EventArgs e)
         {
+            Response.Redirect("Product.aspx");
 
         }
     }

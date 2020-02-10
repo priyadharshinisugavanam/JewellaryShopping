@@ -11,25 +11,16 @@ namespace JewellaryShopping
 {
 
 
-    public partial class AdminWorkSite
+    public partial class Product
     {
 
         /// <summary>
-        /// View control.
+        /// productView control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button View;
-
-        /// <summary>
-        /// Button1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button1;
+        protected global::System.Web.UI.WebControls.GridView productView;
     }
 }

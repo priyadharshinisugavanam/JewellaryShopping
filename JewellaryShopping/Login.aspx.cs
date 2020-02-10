@@ -21,7 +21,7 @@ namespace JewellaryShopping
             }
             else if (retRows == "User")
             {
-                Response.Write("Login successfully as user");
+                Response.Redirect("ProductSite.aspx");
             }
             else
             {
