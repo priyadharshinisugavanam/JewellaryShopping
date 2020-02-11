@@ -69,6 +69,7 @@
   <ItemGroup>
     <Content Include="AdminSite.aspx" />
     <Content Include="AdminWorkSite.aspx" />
+    <Content Include="Global.asax" />
     <Content Include="Home.aspx" />
     <Content Include="Images\back.jpg" />
     <Content Include="Images\dwood.jpg" />
@@ -99,6 +100,9 @@
     </Compile>
     <Compile Include="AdminWorkSite.aspx.designer.cs">
       <DependentUpon>AdminWorkSite.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Home.aspx.cs">
       <DependentUpon>Home.aspx</DependentUpon>

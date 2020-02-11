@@ -7,9 +7,9 @@ namespace JewellaryShopping.BL
     public class UserDetails
     {
         Repositary repositary = new Repositary();
-        public int AddAdmin(User user) {
+        public int SignUp(User user) {
             
-            return repositary.AddAdmin(user);
+            return repositary.SignUp(user);
         }
         public string Login(User user)
         {

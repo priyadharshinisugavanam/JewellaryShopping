@@ -9,7 +9,7 @@ namespace JewellaryShopping.DAL
         SqlConnection sqlConnection = Connection.getDetails();
         public DataTable ViewProductDetails()
         {
-
+            try { 
             using (SqlCommand sqlCommand = new SqlCommand("SP_View_Products ", sqlConnection))
             {
                 SqlDataAdapter sqlDataAdapter = new SqlDataAdapter("SP_View_Products ", sqlConnection);
@@ -17,28 +17,55 @@ namespace JewellaryShopping.DAL
                 sqlDataAdapter.Fill(dataTable);
                 return dataTable;
             }
+
+            }
+            catch (Exception e)
+            {
+                DataTable dataTable = new DataTable();
+                Console.WriteLine(e.Message);
+                return dataTable;
+
+            }
+            finally
+            {
+                sqlConnection.Close();
+            }
         }
         public void DeleteProductDetails(int productNumber)
         {
-            using (SqlCommand sqlCommand = new SqlCommand("SP_DELETE_Procedure ", sqlConnection))
+            try
             {
-                SqlParameter paramm = new SqlParameter();
-                sqlCommand.CommandType = CommandType.StoredProcedure;
+                using (SqlCommand sqlCommand = new SqlCommand("SP_DELETE_Procedure ", sqlConnection))
+                {
+                    SqlParameter paramm = new SqlParameter();
+                    sqlCommand.CommandType = CommandType.StoredProcedure;
 
-                paramm.ParameterName = "@productNumber";
-                paramm.Value = productNumber;
-                paramm.SqlDbType = SqlDbType.Int;
-                paramm.Size = 18;
-                sqlCommand.Parameters.Add(paramm);
-                sqlConnection.Open();
-                SqlDataAdapter sqlDataAdapter = new SqlDataAdapter("SP_DELETE_Procedure", sqlConnection);
-                sqlDataAdapter.DeleteCommand = sqlCommand;
-                sqlCommand.ExecuteNonQuery();
+                    paramm.ParameterName = "@productNumber";
+                    paramm.Value = productNumber;
+                    paramm.SqlDbType = SqlDbType.Int;
+                    paramm.Size = 18;
+                    sqlCommand.Parameters.Add(paramm);
+                    sqlConnection.Open();
+                    SqlDataAdapter sqlDataAdapter = new SqlDataAdapter("SP_DELETE_Procedure", sqlConnection);
+                    sqlDataAdapter.DeleteCommand = sqlCommand;
+                    sqlCommand.ExecuteNonQuery();
 
+                }
+            }
+            catch (Exception e)
+            {
+
+                Console.WriteLine(e.Message);
+
+            }
+            finally
+            {
+                sqlConnection.Close();
             }
         }
         public void UpdateProductDetails(int productNumber, string productName, int rate)
         {
+            try { 
             using (SqlCommand sqlCommand = new SqlCommand("SP_UPDATE_Procedure", sqlConnection))
             {
                 SqlParameter paramm = new SqlParameter();
@@ -66,9 +93,21 @@ namespace JewellaryShopping.DAL
                 sqlConnection.Open();
                 sqlCommand.ExecuteNonQuery();
             }
+            }
+            catch (Exception e)
+            {
+
+                Console.WriteLine(e.Message);
+
+            }
+            finally
+            {
+                sqlConnection.Close();
+            }
         }
             public void InsertProductDetails(Products products)
             {
+            try { 
                 using (SqlCommand sqlCommand = new SqlCommand("SP_InsertPRODUCTS", sqlConnection))
                 {
                     SqlParameter paramm = new SqlParameter();
@@ -90,6 +129,17 @@ namespace JewellaryShopping.DAL
 
                 }
             }
+            catch (Exception e)
+            {
+
+                Console.WriteLine(e.Message);
+
+            }
+            finally
+            {
+                sqlConnection.Close();
+            }
+        }
 
     }
 }

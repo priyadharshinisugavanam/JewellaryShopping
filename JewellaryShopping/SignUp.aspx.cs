@@ -14,7 +14,7 @@ namespace JewellaryShopping
         {
             User user = new User(userId.Text, password.Text, phone.Text, mail.Text);
             
-            int retRows = userDetails.AddAdmin(user);
+            int retRows = userDetails.SignUp(user);
             if (retRows >= 1)
             {
                 Response.Redirect("Login.aspx");

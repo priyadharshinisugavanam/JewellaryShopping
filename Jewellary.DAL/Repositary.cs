@@ -10,10 +10,10 @@ namespace JewellaryShopping.DAL
 
         SqlConnection sqlConnection = Connection.getDetails();
         
-        public int AddAdmin(User user)
+        public int SignUp(User user)
         {
             try {
-            string sql = "AdminProcedure";
+            string sql = "SP_SignUp";
 
                 using (SqlCommand sqlCommand = new SqlCommand(sql, sqlConnection))
                 {
@@ -74,7 +74,7 @@ namespace JewellaryShopping.DAL
 
             try
             {
-                using (SqlCommand sqlCommand = new SqlCommand("Select_AdminProcedure", sqlConnection))
+                using (SqlCommand sqlCommand = new SqlCommand("SP_Select_AdminProcedure", sqlConnection))
                 {
                     sqlCommand.CommandType = CommandType.StoredProcedure;
                     SqlParameter sqlParameter = new SqlParameter();
